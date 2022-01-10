@@ -23,10 +23,18 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+    const ROLE_ADMIN = 1;
+    const ROLE_USER = 2;
+
+    protected $guarded = [];
+
+     
     protected $fillable = [
         'name',
         'email',
         'password',
+        'email_verified_at',
     ];
 
     /**
@@ -58,4 +66,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function  post()
+    {
+        return  $this->hasMany(Post::class, 'post_id', 'id');
+    }
 }

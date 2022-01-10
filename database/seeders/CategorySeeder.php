@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use NunoMaduro\Collision\Adapters\Phpunit\Style;
 
 class CategorySeeder extends Seeder
 {
@@ -14,15 +15,57 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        //
         $date = date('Y-m-d H:i:s');
         $data = [
 
-            ['name' => 'Áo' ,'paren_id' => 1, 'created_at' => $date, 'updated_at' => $date],
-            ['name' => ' Quần','paren_id' => 2, 'created_at' => $date, 'updated_at' => $date],
-            ['name' => 'Mũ' ,'paren_id' => 3, 'created_at' => $date, 'updated_at' => $date],
-            ['name' => 'Đồ trẻ em','paren_id' => 4, 'created_at' => $date, 'updated_at' => $date],
-            
+            [
+                'name' => 'Tủ ', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+
+            ],
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+            [
+                'name' => ' Giường', 'created_at' => $date, 'updated_at' => $date,
+                'thumbnail' => 'products/1.jpg',
+            ],
+
+
         ];
+
         DB::table('categories')->insert($data);
     }
 }

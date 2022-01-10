@@ -178,6 +178,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
     ],
 
@@ -234,7 +235,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
-
+        // 'Helper' => App\Helpers\helper::class,
     ],
 
 ];

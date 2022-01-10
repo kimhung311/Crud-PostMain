@@ -24,7 +24,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        
+        // Gate::define('category/', function ($user, $categories) {
+        //     return $user->id == $categories->user_id;
+        // });
         //
     }
 }

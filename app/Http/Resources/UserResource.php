@@ -14,10 +14,10 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        // return parent::toArray($request); // trả về dạng toArray
-        return [ // trả về giới hạn êu cầu xuất thông tin
-            'name' => $this->name,
-            'email' => $this->email,
-        ];
+        return parent::toArray($request); // trả về dạng toArray
+        // return [ // trả về giới hạn êu cầu xuất thông tin
+        //     'name' => $this->name,
+        //     'email' => $this->email,
+        // ];
     }
 }

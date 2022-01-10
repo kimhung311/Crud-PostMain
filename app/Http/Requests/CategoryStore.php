@@ -24,14 +24,14 @@ class CategoryStore extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:categories|max:255',
+            'category_name' => 'required|unique:categories|max:255',
             'paren_id' => 'required|integer',
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'A name is required',
+            'category_name.required' => 'A name is required',
             'paren_id.required' => 'A paren_id is required',
         ];
     }

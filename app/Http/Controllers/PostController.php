@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\UserResource;
-use App\Http\Resources\UserCollection;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +13,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return json_decode($data = $users);
-        // return UserResource::collection(User::paginate());
-        // return new UserCollection(User::paginate(5));
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -31,17 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $request->validate(
-            [
-                'name' => 'required',
-                'email' => 'required',
-                'password' => 'required',
-            ]
-        );
-
-        $user = User::create($request->all());
-        return new UserResource($user);
+        //
     }
 
     /**
@@ -50,9 +43,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        return new UserResource($user);
+        //
     }
 
     /**
@@ -63,6 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**
@@ -72,12 +66,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  User $user)
+    public function update(Request $request, $id)
     {
-        dd($request->all());
-        $user->update($request->all());
-        return new UserResource($user);
-
+        // if (!Gate::allows('update-post', $post)) {
+        //     abort(403);
+        // }
         //
     }
 
@@ -87,9 +80,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
-        $user->delete();
     }
 }

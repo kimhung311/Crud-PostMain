@@ -29,16 +29,14 @@ Route::group([
     Route::post('me', [AuthController::class, 'me']);
 });
 
-
 Route::group(['middleware' => 'auth:api', 'prefix' => 'category'], function () {
-    Route::get('/', [UserController::class, 'index']);
-    Route::get('/show/{id}', [UserController::class, 'show']);
+    // Route::get('/', [UserController::class, 'index']);
+    // Route::get('/show/{id}', [UserController::class, 'show']);
 });
-
+Route::get('user/login/facebook', [AuthController::class, 'facebook']);
 
 Route::group(['prefix' => 'v1',  'as' => 'v1.'], function () {
     // Route::resource('user', UserController::class)->only(['index', 'show', 'store', 'update', 'delete']);
     Route::resource('user', UserController::class)->except(['create', 'edit']);  // Route::resource là tất cả các phương thức Controller Api
     // dùng only để chạy các phương thức khai báo trong hàm hoặc dung except trừ ra những phương thức không chạy
 });
-Route::get('user/login/facebook', [AuthController::class, 'facebook']);

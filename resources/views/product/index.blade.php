@@ -46,7 +46,7 @@
 @endif
 
 
-    <a href="{{ route('category.create') }}" class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="top">ADD</a>
+    {{-- <a href="{{ route('category.create') }}" class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="top">ADD</a> --}}
 
 
     {{-- display list category table --}}
@@ -54,35 +54,24 @@
         <thead>
             <tr>
                 <th>Stt</th>
-                <th>Category Name</th>
-                <th>Image</th>
+                <th> Name</th>
+                <th> Price</th>
+                <th> Content</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
         <tbody>
-            @if(!empty($categories))
-                @foreach ($categories as $key => $category)
+            @if(!empty($products))
+                @foreach ($products as $key => $value)
                     <tr>
                         <td>{{ $key+1 }}</td>
-                        <td>{{ $category->name }}</td>
-                        <td>
-                          
-                            <img src="{{asset('storage/thumbnail/'.$category->thumbnail) }}" alt="{{ $category->name }}" class="img-fluid" style="width: 240px; height: auto;">
-                         <td>
-                        <a class="btn btn-primary"href="{{ route('category.edit', $category->id) }}"><i class="fas fa-edit"></i></a>
-                        </td>
-                    <td>
-                        <form action="{{ route('category.destroy', $category->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure DELETE PRODUCT?')"><i class="fas fa-trash"></i></button>
-                        </form>
-                   </td>
-                   {{-- <td> {{ asset('storage/file.txt') }} </td> --}}
+                        <td>{{ $value->name }}</td>
+                        <td>{{ $value->price }}</td>
+                        <td>{{ $value->content }}</td>
                     </tr>
                 @endforeach
             @endif
         </tbody>
     </table>
-    {{ $categories->links() }}
+    {{-- {{ $categories->links() }} --}}
 @endsection
